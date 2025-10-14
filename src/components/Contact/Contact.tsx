@@ -76,11 +76,6 @@ const ContactMe = () => {
             </motion.a>
           ))}
         </div>
-
-        <p className="mt-8 text-gray-500 text-sm">
-          Accessibility Statement | Privacy Policy <br />© 2035 by Clara Roth.
-          Built on Wix Studio
-        </p>
       </motion.div>
     </div>
   );
