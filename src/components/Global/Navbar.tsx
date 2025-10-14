@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { NavMenu } from "@/components/Global/Nav-menu";
 import { NavigationSheet } from "@/components/Global/Navigation-sheet";
@@ -7,18 +8,24 @@ const Navbar04Page = () => {
     <div className="bg-muted">
       <nav className="fixed top-6 inset-x-4 h-16 bg-background border dark:border-slate-700/70 max-w-(--breakpoint-xl) mx-auto rounded-full">
         <div className="h-full flex items-center justify-between mx-auto px-4">
-
           {/* Desktop Menu */}
           <NavMenu className="hidden md:block" />
 
           <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              className="hidden sm:inline-flex rounded-full"
-            >
-              Contact Me
-            </Button>
-            <Button className="rounded-full">Hire Me</Button>
+            {/* Contact Me Button */}
+            <Link href="/contact">
+              <Button
+                variant="outline"
+                className="hidden sm:inline-flex rounded-full"
+              >
+                Contact Me
+              </Button>
+            </Link>
+
+            {/* Hire Me Button */}
+            <Link href="/contact">
+              <Button className="rounded-full">Hire Me</Button>
+            </Link>
 
             {/* Mobile Menu */}
             <div className="md:hidden">

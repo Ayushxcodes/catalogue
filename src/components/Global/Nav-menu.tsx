@@ -27,7 +27,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="#">Contact Us</Link>
+          <Link href="/contact">Contact Me</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>
