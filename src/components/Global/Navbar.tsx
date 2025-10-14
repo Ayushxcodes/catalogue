@@ -16,9 +16,9 @@ const Navbar04Page = () => {
               variant="outline"
               className="hidden sm:inline-flex rounded-full"
             >
-              Sign In
+              Contact Me
             </Button>
-            <Button className="rounded-full">Get Started</Button>
+            <Button className="rounded-full">Hire Me</Button>
 
             {/* Mobile Menu */}
             <div className="md:hidden">
