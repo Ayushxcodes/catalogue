@@ -115,14 +115,14 @@ const artPieces: ArtPiece[] = [
     title: "Untitled 14",
     artist: "Unknown",
     description: "sddsd",
-    imageUrl: "/fourteen.jpg",
+    imageUrl: "/fourteen.JPG",
   },
   {
     id: 15,
     title: "Untitled 15",
     artist: "Unknown",
     description: "sdsd",
-    imageUrl: "/fifteen.jpg",
+    imageUrl: "/fifteen.JPG",
   },
 ];
 const ArtGallery = () => {
