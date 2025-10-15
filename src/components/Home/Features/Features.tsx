@@ -61,8 +61,70 @@ const artPieces: ArtPiece[] = [
       "This was his second attempt. His last engagement in Delhi before a late evening flight. He decided to focus on me to shrug off the awkwardness. His glare was unsettling for a bit, but engaging. His was in-my-face. ‘I don’t draw faces,’ I tell him. He insisted I do this time, particularly the eyes. A grand adventure. He’s not who you think.",
     imageUrl: "/six.jpg",
   },
+  {
+    id: 7,
+    title: "Untitled 7",
+    artist: "Unknown",
+    description: "ss",
+    imageUrl: "/seven.jpg",
+  },
+  {
+    id: 8,
+    title: "Untitled 8",
+    artist: "Unknown",
+    description: "s",
+    imageUrl: "/eight.jpg",
+  },
+  {
+    id: 9,
+    title: "Untitled 9",
+    artist: "Unknown",
+    description: "ss",
+    imageUrl: "/nine.jpg",
+  },
+  {
+    id: 10,
+    title: "Untitled 10",
+    artist: "Unknown",
+    description: "sdds",
+    imageUrl: "/ten.jpg",
+  },
+  {
+    id: 11,
+    title: "Untitled 11",
+    artist: "Unknown",
+    description: "dsd",
+    imageUrl: "/eleven.jpg",
+  },
+  {
+    id: 12,
+    title: "Untitled 12",
+    artist: "Unknown",
+    description: "sddsd",
+    imageUrl: "/twelve.jpg",
+  },
+  {
+    id: 13,
+    title: "Untitled 13",
+    artist: "Unknown",
+    description: "sddsd",
+    imageUrl: "/thirteen.jpg",
+  },
+  {
+    id: 14,
+    title: "Untitled 14",
+    artist: "Unknown",
+    description: "sddsd",
+    imageUrl: "/fourteen.jpg",
+  },
+  {
+    id: 15,
+    title: "Untitled 15",
+    artist: "Unknown",
+    description: "sdsd",
+    imageUrl: "/fifteen.jpg",
+  },
 ];
-
 const ArtGallery = () => {
   const [selectedArt, setSelectedArt] = useState<ArtPiece | null>(null);
 
