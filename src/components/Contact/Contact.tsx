@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
   AiOutlineMail,
   AiOutlineInstagram,
-  AiOutlinePhone,
+  AiOutlineWeiboSquare,
 } from "react-icons/ai";
 
 const ContactMe = () => {
@@ -22,10 +22,10 @@ const ContactMe = () => {
       link: "https://www.instagram.com/srivastavamihir/",
     },
     {
-      icon: <AiOutlinePhone size={24} className="text-green-500" />,
-      label: "Phone",
-      value: "+91 98993 09629",
-      link: "tel:+919899309629",
+      icon: <AiOutlineWeiboSquare size={24} className="text-green-500" />,
+      label: "Vyakti",
+      value: "https://vyakti.co.in",
+      link: "https://vyakti.co.in",
     },
   ];
 

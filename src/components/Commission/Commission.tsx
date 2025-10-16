@@ -26,7 +26,7 @@ const Commission = () => {
     <div className="flex flex-col md:flex-row items-start justify-between p-8 gap-8">
       {/* Left Side: Animated Image */}
       <motion.div
-        className="w-full md:w-1/2 flex justify-center items-start rounded-lg overflow-hidden"
+        className="w-full md:w-1/2 flex flex-col justify-center items-center rounded-lg overflow-hidden"
         style={{ height: desktopHeight }}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -37,6 +37,11 @@ const Commission = () => {
           alt="Commission Art"
           className="w-full h-auto md:h-full object-cover rounded-lg"
         />
+
+        {/* Photo Credit (Mobile only) */}
+        <p className="text-sm text-gray-500 mt-3 italic md:hidden text-center">
+          Photo: Raul Irani
+        </p>
       </motion.div>
 
       {/* Right Side: Commission Content */}
@@ -74,6 +79,11 @@ const Commission = () => {
             Contact Me
           </a>
         </div>
+
+        {/* Photo Credit (Desktop only) */}
+        <p className="hidden md:block text-sm text-gray-500 mt-4 italic">
+          Photo: Raul Irani
+        </p>
       </div>
     </div>
   );
