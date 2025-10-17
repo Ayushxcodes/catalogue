@@ -1,20 +1,42 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-const Commission = () => {
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }, // safe string
+  },
+};
+
+const paragraphs = [
+  "I’m existentially bored, a sort of ennui, this engagement keeps me sane and going. As I relive my subjects in substantial measure.",
+  "Nudity is the process of unlearning, that makes my subject vulnerable enough, to realise, living vulnerabilities is a sure way to empowerment. They start tentatively, and when they get used to their unabashed self, they confront me with their bareness, and I draw frantically, my lines dig deep on paper, whirring in the process.",
+  "I’m interested in people and the simplicity of their complexities, and love to engage with them, their universality in their individuality. Existentially, we’re essentially similar, however, the mix of the complex identities, tryst with destiny, experiences, shape the ‘me’ in us. The burden of self is onerous and there’s always a need to mix with the all-encompassing whole.",
+  "Nudity is revealing. Not just to my subject but also to me, as an experience, I get to know myself better with every sketching session.",
+];
+
+const WhyIDraw = () => {
   const textRef = useRef<HTMLDivElement>(null);
   const [textHeight, setTextHeight] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const updateHeight = () => {
-      if (textRef.current) {
-        setTextHeight(textRef.current.offsetHeight);
-      }
-      setIsDesktop(window.innerWidth >= 768); // md breakpoint
+      if (textRef.current) setTextHeight(textRef.current.offsetHeight);
+      setIsDesktop(window.innerWidth >= 768);
     };
-
     updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
@@ -24,7 +46,7 @@ const Commission = () => {
 
   return (
     <div className="flex flex-col md:flex-row items-start justify-between p-8 gap-8">
-      {/* Left Side: Animated Image */}
+      {/* Left: Image */}
       <motion.div
         className="w-full md:w-1/2 flex flex-col justify-center items-center rounded-lg overflow-hidden"
         style={{ height: desktopHeight }}
@@ -34,59 +56,54 @@ const Commission = () => {
       >
         <img
           src="/potrait.avif"
-          alt="Commission Art"
+          alt="Why I Draw"
           className="w-full h-auto md:h-full object-cover rounded-lg"
         />
-
-        {/* Photo Credit (Mobile only) */}
         <p className="text-sm text-gray-500 mt-3 italic md:hidden text-center">
           Photo: Raul Irani
         </p>
       </motion.div>
 
-      {/* Right Side: Commission Content */}
-      <div ref={textRef} className="md:w-1/2 w-full space-y-4 text-gray-800">
-        <h1 className="text-3xl font-bold mb-4">Why Should You Pose For Me?</h1>
+      {/* Right: Text */}
+      <motion.div
+        ref={textRef}
+        className="md:w-1/2 w-full space-y-4 text-gray-900"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 className="text-3xl font-bold mb-4" variants={itemVariants}>
+          Why I Draw
+        </motion.h1>
 
-        <p>
-          • I aim to capture the miraculous in the mundane. Miracles can be
-          subtle, and working with me requires a realistic openness to
-          experience them.
-        </p>
-        <p>
-          • I act as an existential mirror, reflecting your essence through
-          sketches rather than appearances. Beauty is energy, felt rather than
-          seen.
-        </p>
-        <p>
-          • Both you and I change constantly; each encounter is unique, and the
-          sketch evolves as we do. My work reflects the inner dynamics of the
-          moment.
-        </p>
-        <p>
-          • Vulnerability is empowering. By letting go of layers and posing
-          honestly, my subjects often discover strength and freedom, which I
-          witness and share in my work.
-        </p>
-        <p>• It’s never too late to embrace a meaningful encounter.</p>
+        {paragraphs.map((p, i) => (
+          <motion.p
+            key={i}
+            className="text-justify leading-relaxed"
+            variants={itemVariants}
+          >
+            {p}
+          </motion.p>
+        ))}
 
-        {/* Contact Button */}
-        <div className="mt-6">
+        <motion.div variants={itemVariants} className="mt-6">
           <a
             href="/contact"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold"
+            className="inline-block px-6 py-3 border border-black text-black rounded-lg hover:bg-gray-100 transition-colors duration-300 font-semibold"
           >
             Contact Me
           </a>
-        </div>
+        </motion.div>
 
-        {/* Photo Credit (Desktop only) */}
-        <p className="hidden md:block text-sm text-gray-500 mt-4 italic">
+        <motion.p
+          className="hidden md:block text-sm text-gray-500 mt-4 italic"
+          variants={itemVariants}
+        >
           Photo: Raul Irani
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </div>
   );
 };
 
-export default Commission;
+export default WhyIDraw;

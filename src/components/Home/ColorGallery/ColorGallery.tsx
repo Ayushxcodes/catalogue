@@ -12,7 +12,6 @@ interface Painting {
   imageUrl: string;
 }
 
-// 13 paintings using your file names
 const paintings: Painting[] = [
   {
     id: 1,
@@ -36,7 +35,7 @@ const paintings: Painting[] = [
     artist: "M. Kaur",
     description:
       "Soft golden hues capture fleeting moments of sunlight through abstract landscapes.",
-    imageUrl: "/c_three.jpg",
+    imageUrl: "/c_fourteen.jpg",
   },
   {
     id: 4,
@@ -60,7 +59,7 @@ const paintings: Painting[] = [
     artist: "E. Lopez",
     description:
       "An underwater dance of coral tones and sea greens celebrating marine vibrancy.",
-    imageUrl: "/c_six.jpg",
+    imageUrl: "/c_fifteen.jpg",
   },
   {
     id: 7,
@@ -96,27 +95,19 @@ const paintings: Painting[] = [
   },
   {
     id: 11,
-    title: "Spectrum Veins",
-    artist: "H. Ali",
-    description:
-      "A pulsating mix of bright pigments resembling the energy lines of life itself.",
-    imageUrl: "/c_eleven.jpg",
-  },
-  {
-    id: 12,
-    title: "Luminous Drift",
-    artist: "P. Wright",
-    description:
-      "Flowing pigments and radiant tones expressing calmness through motion.",
-    imageUrl: "/c_twelve.jpg",
-  },
-  {
-    id: 13,
     title: "Celestial Field",
     artist: "Y. Kim",
     description:
       "A dance between light, texture, and emotion — celebrating the infinite field of imagination.",
-    imageUrl: "/c_thirteen.jpg",
+    imageUrl: "/c_sixteen.jpg",
+  },
+  {
+    id: 12,
+    title: "Celestial Field",
+    artist: "Y. Kim",
+    description:
+      "A dance between light, texture, and emotion — celebrating the infinite field of imagination.",
+    imageUrl: "/c_seventeen.jpg",
   },
 ];
 
@@ -127,9 +118,20 @@ const ColorGallery = () => {
 
   return (
     <div className="p-4 md:p-8 bg-gradient-to-br from-pink-50 via-orange-50 to-yellow-50 min-h-screen">
-      <h1 className="text-4xl font-extrabold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500">
-        Color Paintings Gallery
-      </h1>
+      {/* Title + Quotation */}
+      <div className="text-center mb-10 max-w-3xl mx-auto">
+        <h1 className="text-4xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500">
+          Colours of Being
+        </h1>
+        <p className="italic text-gray-700 text-base md:text-lg leading-relaxed">
+          “If sketches are what you feel in the moments of engagement, paintings
+          are an outcome of what happens to you because of these engagements.
+          Something shifts in you, and you are insightful in a different way,
+          sometimes overwhelmed, for love is also a strong engagement. To vent
+          out pent up emotions I paint for hours, restlessly, briskly, with high
+          libido, playing with colours.”
+        </p>
+      </div>
 
       {/* Gallery Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

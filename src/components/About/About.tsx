@@ -12,7 +12,7 @@ const About = () => {
       if (textRef.current) {
         setTextHeight(textRef.current.offsetHeight);
       }
-      setIsDesktop(window.innerWidth >= 768); // md breakpoint
+      setIsDesktop(window.innerWidth >= 768);
     };
 
     updateHeight();
@@ -20,67 +20,91 @@ const About = () => {
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
-  // Only apply 1.1x height on desktop
-  const desktopHeight = isDesktop ? textHeight * 1.1 : "auto";
+  const desktopHeight = isDesktop ? textHeight * 1.05 : "auto";
 
   return (
-    <div className="flex flex-col md:flex-row items-start justify-between p-8 gap-8">
-      {/* Left Side: Animated Image */}
+    <section className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-12 gap-10 bg-white text-black overflow-hidden">
+      {/* Left Side — Image */}
       <motion.div
         className="w-full md:w-1/2 flex justify-center items-start"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         style={{ height: desktopHeight }}
       >
-        <img
-          src="/profile.avif" // Replace with your image
-          alt="About Me"
-          className="w-full h-auto md:h-full object-cover rounded-lg"
+        <motion.img
+          src="/profile.avif"
+          alt="Mihir Srivastava"
+          className="w-full h-auto md:h-full max-h-[700px] object-cover rounded-2xl shadow-xl grayscale hover:grayscale-0 transition duration-500"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.4 }}
         />
       </motion.div>
 
-      {/* Right Side: About Text */}
-      <div ref={textRef} className="md:w-1/2 w-full space-y-4 text-gray-800">
-        <h1 className="text-3xl font-bold mb-4">About Me</h1>
-        <p>• I’m existentially bored.</p>
+      {/* Right Side — Text */}
+      <motion.div
+        ref={textRef}
+        className="md:w-1/2 w-full space-y-5 leading-relaxed"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 1.2, ease: "easeOut" }}
+      >
+        <h1 className="text-4xl font-bold mb-6 text-center md:text-left uppercase tracking-wide">
+          About Me
+        </h1>
+
         <p>
-          • A journalist by profession who likes to document humanity with the
-          qualification of clothing by way of scribbling drawings. My hobby and
-          my profession started around the same time more than 20 years ago.
+          I, <span className="font-semibold">Mihir Srivastava</span>,
+          professionally identify myself as a journalist. Though I like to fancy
+          myself as undefined, I’m everything in some measure and nothing in
+          particular — my outlines are blurred.
         </p>
+
         <p>
-          • I’m interested in people–the choices they make or forgo to making to
-          shape their destiny. I make a living poking my nose into the lives of
-          others.
+          With over two decades of experience in leading national weeklies, I’ve
+          explored a wide range of subjects — politics, environment, wildlife,
+          and investigative journalism — which essentially entails time,
+          persistence, and curiosity.
         </p>
+
         <p>
-          • To witness cultural diversity and how humanity has organised itself
-          variously across the globe gives me immense pleasure. I like to
-          travel. It’s not an escape but for a greater engagement. To me
-          travelling is a serious endeavour to find fodder to describe and draw
-          inspired by people who agree to open up to my probing eyes. When I
-          draw them or describe them, in the process, I learn a lot about
-          myself.
+          I’ve authored books such as{" "}
+          <span className="italic">“Love Jihadi”</span> and
+          <span className="italic"> “Conversations In The Nude”</span>, with
+          more in the pipeline. Beyond writing, I’ve also ventured into
+          documentary filmmaking.
         </p>
+
         <p>
-          • Dealing with people to document them at some level becomes a
-          reflection unto self–I rediscover myself bit by bit. It’s a journey
-          that I&apos;m in love with.
+          I find solace in painting and sketching — a way to document humanity
+          through artistic engagement. Curiosity drives me: I’m fascinated by
+          people — their choices, contradictions, and moments of truth. Writing
+          and drawing are tools to capture the essence of people and our times.
         </p>
+
         <p>
-          • I founded{" "}
-          <a href="https://vyakti.co.in" className="text-blue-600 underline">
+          A journalist at heart, I make a living poking my nose in other
+          people’s affairs. I co-founded and edit{" "}
+          <a
+            href="https://vyakti.co.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-600"
+          >
             Vyakti.co.in
-          </a>{" "}
-          where I do experiential profile of people instead of drawing them,
-          however the inherent process is more or less the same. I internalise
-          my subject enough to be inspired to draw, in this case to write about
-          them.
+          </a>
+          , where I write about individuals to better understand our world — how
+          we arrived here and where we’re heading at an express pace.
         </p>
-        <p>• I live in Noida. My home doubles as a gallery of my artwork.</p>
-      </div>
-    </div>
+
+        <p>
+          In this dynamic quagmire of existence, a ‘Vyakti’ (or individual)
+          serves as both a symbol of change and its catalyst. Traveling, for me,
+          isn’t leisure — it’s a serious pursuit of the unknown, an act of
+          discovery and reflection.
+        </p>
+      </motion.div>
+    </section>
   );
 };
 
