@@ -5,9 +5,7 @@ import { motion, Variants } from "framer-motion";
 const containerVariants: Variants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.3,
-    },
+    transition: { staggerChildren: 0.3 },
   },
 };
 
@@ -16,14 +14,14 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }, // safe string
+    transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
 const paragraphs = [
-  "I’m existentially bored, a sort of ennui, this engagement keeps me sane and going. As I relive my subjects in substantial measure.",
-  "Nudity is the process of unlearning, that makes my subject vulnerable enough, to realise, living vulnerabilities is a sure way to empowerment. They start tentatively, and when they get used to their unabashed self, they confront me with their bareness, and I draw frantically, my lines dig deep on paper, whirring in the process.",
-  "I’m interested in people and the simplicity of their complexities, and love to engage with them, their universality in their individuality. Existentially, we’re essentially similar, however, the mix of the complex identities, tryst with destiny, experiences, shape the ‘me’ in us. The burden of self is onerous and there’s always a need to mix with the all-encompassing whole.",
+  "I’m existentially bored, a sort of ennui, this hobby keeps me sane and going. I get solace in painting/sketching as I relive my subjects in substantial measure, an artistic engagement that allows me to document humanity in all its rawness.",
+  "Nudity is the process of unlearning, that makes my subject vulnerable enough, to realise, living vulnerabilities is a sure way to empowerment. They start tentatively, and when they get used to their unabashed self, they confront me with their bareness, and I draw frantically, my lines dig deep on paper, whirring in the process. This engagement is joyous.",
+  "I’m interested in people and the simplicity of their complexities, and love to engage with them, their universality in their individuality. Existentially, we’re essentially similar, however, the mix of the complex identities, tryst with destiny, experiences we gather, shape the ‘me’ in us. The burden of self is onerous and there’s always a need to mix with the all-encompassing whole.",
   "Nudity is revealing. Not just to my subject but also to me, as an experience, I get to know myself better with every sketching session.",
 ];
 
@@ -45,7 +43,7 @@ const WhyIDraw = () => {
   const desktopHeight = isDesktop ? textHeight * 1.4 : "auto";
 
   return (
-    <div className="flex flex-col md:flex-row items-start justify-between p-8 gap-8">
+    <div className="flex flex-col md:flex-row items-start justify-between p-8 gap-8 bg-white text-black overflow-hidden">
       {/* Left: Image */}
       <motion.div
         className="w-full md:w-1/2 flex flex-col justify-center items-center rounded-lg overflow-hidden"
@@ -67,12 +65,15 @@ const WhyIDraw = () => {
       {/* Right: Text */}
       <motion.div
         ref={textRef}
-        className="md:w-1/2 w-full space-y-4 text-gray-900"
+        className="md:w-1/2 w-full space-y-5 text-gray-900"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 className="text-3xl font-bold mb-4" variants={itemVariants}>
+        <motion.h1
+          className="text-3xl font-bold mb-4 tracking-tight"
+          variants={itemVariants}
+        >
           Why I Draw
         </motion.h1>
 

@@ -22,7 +22,6 @@ const Landing = () => {
 
   const imageHeight = isDesktop ? textHeight * 1.8 : "auto";
 
-  // ✅ Fixed TypeScript-safe animation variants
   const paragraphVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -30,7 +29,7 @@ const Landing = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1], // correct easing array instead of string
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   };
@@ -48,19 +47,20 @@ const Landing = () => {
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
-            I INDULGE IN THE CONVERSATION IN THE NUDE
+            I HOST CONVERSATIONS IN THE NUDE
           </h1>
 
           <h2 className="text-lg md:text-xl font-medium text-gray-600 tracking-wide">
-            Introduction page—with the first sliding image
+            This website is about my tryst with humanity without the
+            qualification of clothing.
           </h2>
 
           <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-xl mx-auto md:mx-0">
             I, <span className="font-semibold">Mihir Srivastava</span>, sketch
             people in the nude. A hobby that started nearly 25 years ago has
-            become a social experiment with more than 500 people having
-            participated, and growing. I love to converse with them while
-            drawing, inspired by their bare exuberance.
+            become an existential experiment with more than 500 people having
+            participated in it, and the number is growing. I love to converse
+            with them while drawing inspired by their bare exuberance.
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ const Landing = () => {
         >
           <div className="relative w-full md:w-[85%] max-w-[550px] h-auto rounded-xl overflow-hidden">
             <Image
-              src="/profile.avif" // replace with your actual image
+              src="/profile.avif"
               alt="Landing Artwork"
               width={600}
               height={400}
@@ -93,6 +93,11 @@ const Landing = () => {
         transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <div className="max-w-4xl mx-auto space-y-6 text-justify leading-relaxed text-base md:text-lg">
+          {/* ✅ Added Heading */}
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 mb-8 tracking-wide">
+            PRIVATE SPACE FOR PUBLIC NUDITY
+          </h2>
+
           {[
             "Nudity is not the end of the exercise but the beginning. It’s a ticket to enter this space that I call ‘private space for public nudity’.",
             "In this space, I represent society, or the rest of the world, therefore dressed. In this space, we interact as energies, engagement is sought, sketch is capturing this engagement in bold lines. Trust is the basis of engagement and nudity is not, therefore, a state of being, but a dynamic process of unlearning.",

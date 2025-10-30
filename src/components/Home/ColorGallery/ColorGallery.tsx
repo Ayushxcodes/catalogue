@@ -103,10 +103,10 @@ const paintings: Painting[] = [
   },
   {
     id: 12,
-    title: "Celestial Field",
+    title: "Celestial Field II",
     artist: "Y. Kim",
     description:
-      "A dance between light, texture, and emotion — celebrating the infinite field of imagination.",
+      "A continuation of celestial explorations through layered color and light interplay.",
     imageUrl: "/c_seventeen.jpg",
   },
 ];
@@ -118,27 +118,27 @@ const ColorGallery = () => {
 
   return (
     <div className="p-4 md:p-8 bg-gradient-to-br from-pink-50 via-orange-50 to-yellow-50 min-h-screen">
-      {/* Title + Quotation */}
+      {/* Title + Intro Quote */}
       <div className="text-center mb-10 max-w-3xl mx-auto">
         <h1 className="text-4xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500">
-          Colours of Being
+          RAINBOW EXISTENCE
         </h1>
         <p className="italic text-gray-700 text-base md:text-lg leading-relaxed">
-          “If sketches are what you feel in the moments of engagement, paintings
+          “If sketches are what I feel in the moments of engagement, paintings
           are an outcome of what happens to you because of these engagements.
-          Something shifts in you, and you are insightful in a different way,
-          sometimes overwhelmed, for love is also a strong engagement. To vent
-          out pent up emotions I paint for hours, restlessly, briskly, with high
-          libido, playing with colours.”
+          Something shifts in me, insightful in a different way, sometimes
+          overwhelmed, for a strong engagement is akin to love. To vent out pent
+          up emotions I paint for hours, restlessly, briskly, with high libido,
+          playing with colours.”
         </p>
       </div>
 
       {/* Gallery Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
         {paintings.map((painting) => (
           <div
             key={painting.id}
-            className="relative cursor-pointer rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 bg-white group border border-transparent hover:border-pink-300"
+            className="relative cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white group border border-transparent hover:border-pink-300"
             onClick={() => setSelectedPainting(painting)}
           >
             <div className="w-full aspect-square relative">
@@ -146,11 +146,11 @@ const ColorGallery = () => {
                 src={painting.imageUrl}
                 alt={painting.title}
                 fill
-                className="object-cover group-hover:opacity-90 transition"
-                sizes="(max-width: 768px) 100vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
               <h3 className="text-lg font-semibold text-white">
                 {painting.title}
               </h3>
@@ -193,7 +193,7 @@ const ColorGallery = () => {
           {selectedPainting && (
             <div className="relative bg-white rounded-3xl w-[90vw] h-[90vh] max-w-[1200px] overflow-hidden flex flex-col md:flex-row shadow-2xl border border-pink-200">
               {/* Left: Image */}
-              <div className="md:w-1/2 w-full h-1/2 md:h-full relative bg-gradient-to-b from-pink-100 to-orange-100">
+              <div className="md:w-1/2 w-full h-1/2 md:h-full relative bg-gradient-to-b from-pink-100 to-orange-100 flex items-center justify-center">
                 <Image
                   src={selectedPainting.imageUrl}
                   alt={selectedPainting.title}
@@ -213,17 +213,23 @@ const ColorGallery = () => {
                 <div className="space-y-4 leading-relaxed text-justify text-gray-700">
                   {selectedPainting.description
                     .split(". ")
+                    .filter(Boolean)
                     .map((sentence, idx) => (
-                      <p key={idx}>{sentence.trim()}.</p>
+                      <p key={idx}>
+                        {sentence.trim()}
+                        {!sentence.trim().endsWith(".") ? "." : ""}
+                      </p>
                     ))}
                 </div>
 
-                <button
-                  className="mt-6 float-right bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white px-6 py-2 rounded-full transition-all duration-200"
-                  onClick={() => setSelectedPainting(null)}
-                >
-                  Close
-                </button>
+                <div className="mt-6 flex justify-end">
+                  <button
+                    className="bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white px-6 py-2 rounded-full transition-all duration-200"
+                    onClick={() => setSelectedPainting(null)}
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           )}
