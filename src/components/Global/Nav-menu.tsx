@@ -35,11 +35,7 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
           <Link href="/participate">Participate</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationMenuLink asChild>
-          <Link href="/contact">Contact</Link>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
+    
     </NavigationMenuList>
   </NavigationMenu>
 );
