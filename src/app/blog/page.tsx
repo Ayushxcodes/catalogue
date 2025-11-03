@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
   Select,
@@ -7,14 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ChevronRight } from "lucide-react";
 
 const Blog = () => {
   return (
-    <div className="max-w-(--breakpoint-xl) mx-auto py-36 px-6 xl:px-0">
+    <div className="max-w-(--breakpoint-xl) mx-auto py-30 px-6 xl:px-0">
       <div className="flex items-end justify-between">
-        <h2 className="text-3xl font-semibold tracking-tighter">
-          Today&apos;s Posts
-        </h2>
+        <h2 className="text-3xl font-bold tracking-tight">Posts</h2>
         <Select defaultValue="recommended">
           <SelectTrigger className="w-[180px]">
             <SelectValue />
@@ -29,28 +29,31 @@ const Blog = () => {
 
       <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-          <Card key={i} className="shadow-none py-0 gap-3">
-            <CardHeader className="p-2 pb-0">
-              <div className="aspect-video bg-muted rounded-lg w-full" />
+          <Card key={i} className="shadow-none overflow-hidden rounded-md py-0">
+            <CardHeader className="p-0">
+              <div className="aspect-video bg-muted w-full border-b" />
             </CardHeader>
-            <CardContent className="pt-0 pb-5 px-5">
-              <Badge variant="secondary">Technology</Badge>
-
-              <h3 className="mt-4 text-[1.4rem] font-semibold tracking-tight">
-                What is the future of web development?
-              </h3>
-              <div className="mt-6 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="size-8 rounded-full bg-muted"></div>
-                  <span className="text-muted-foreground font-medium">
-                    John Doe
-                  </span>
-                </div>
-
-                <span className="text-muted-foreground text-sm">
-                  Nov 30, 2024
+            <CardContent className="pb-6">
+              <div className="flex items-center gap-3">
+                <Badge className="bg-primary/5 text-primary hover:bg-primary/5 shadow-none">
+                  Technology
+                </Badge>
+                <span className="font-medium text-xs text-muted-foreground">
+                  5 min read
                 </span>
               </div>
+
+              <h3 className="mt-4 text-[1.35rem] font-semibold tracking-tight">
+                A beginner&apos;s guide to blackchain for engineers
+              </h3>
+              <p className="mt-2 text-muted-foreground">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse varius enim in eros.
+              </p>
+
+              <Button size="sm" className="mt-6 shadow-none">
+                Read more <ChevronRight />
+              </Button>
             </CardContent>
           </Card>
         ))}
